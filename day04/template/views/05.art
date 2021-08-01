@@ -1,0 +1,7 @@
+{{extend './common/layout.art'}}
+{{block 'content'}}
+    <p>{{msg}}</p>
+{{/block}}
+{{block 'link'}}
+    <link rel='stylesheet' type='text/css' href='./test.html'>hi</link>
+{{/block}}

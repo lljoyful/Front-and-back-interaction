@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var minAbsoluteSumDiff = function(nums1, nums2) {
+            let arr = nums1.slice().sort((a, b) => a - b);
+            console.log(arr);
+            console.log(nums1);
+            let sum = 0;
+            let max = 0;
+            let n = nums1.length;
+            for (let i = 0; i < n; i++) {
+                const temp = Math.abs(nums1[i] - nums2[i]);
+                sum += temp;
+                //找出差值改变最大的
+                const j = binarySearch(arr, nums2[i]);
+                if (j < n) {
+                    max = Math.max(max, temp - (arr[j] - nums2[i]));
+                }
+                if (j > 0) {
+                    max = Math.max(max, temp - (nums2[i] - arr[j - 1]));
+                }
+
+            }
+            return sum - max;
+        };
+        const binarySearch = (arr, target) => {
+            let low = 0,
+                high = arr.length - 1;
+            if (arr[high] < target) {
+                return high + 1;
+            }
+            while (low < high) {
+                const mid = Math.floor((high - low) / 2) + low;
+                if (arr[mid] < target) {
+                    low = mid + 1;
+                } else {
+                    high = mid;
+                }
+            }
+            return low;
+        }
+        console.log(minAbsoluteSumDiff([1, 10, 4, 4, 2, 7, 10], [1, 10, 4, 4, 2, 7, 10]));
+    </script>
+</body>
+
+</html>

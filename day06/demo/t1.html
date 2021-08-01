@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var generateMatrix = function(n) {
+            let a = Array.from(Array(n), () => new Array(n));
+            let k = 1;
+            let l = Math.floor(n / 2);
+            console.log(l);
+            for (let i = 0; i <= l; i++) {
+                let r = i + 1,
+                    p = n - r - 1,
+                    q = n - r - 1;
+                for (let j = i; j < n - i; j++) {
+                    console.log('1:' + k);
+                    a[i][j] = k++;
+                }
+                console.log('1:' + a);
+                for (let m = r; m < n - i; m++) {
+                    console.log('2:' + k);
+                    a[m][n - 1 - i] = k++;
+                }
+                console.log('2:' + a);
+                for (let m = p; m >= i; m--) {
+                    console.log('3:' + k);
+                    a[n - i - 1][m] = k++;
+                }
+                console.log('3:' + a);
+                for (let m = q; m > i; m--) {
+                    console.log('4:' + k);
+                    a[m][i] = k++;
+                }
+                console.log('4:' + a);
+            }
+            // if (n % 2) {
+            //     a[l][l] = k;
+            // }
+            return a;
+        };
+        console.log(generateMatrix(4));
+    </script>
+</body>
+
+</html>

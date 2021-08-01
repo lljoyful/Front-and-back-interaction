@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var minPartitions = function(n) {
+            console.log(n);
+            n = parseInt(n);
+            console.log(n);
+            let max = 0,
+                t = 0;
+            while (n != 0) {
+                t = n % 10;
+                console.log(t, n)
+                n = Math.floor(n / 10);
+
+                if (max < t) {
+                    max = t;
+                }
+                if (max == 9) {
+                    return 9;
+                }
+
+            }
+            return max;
+        };
+        console.log(minPartitions("1112212212211221212"));
+    </script>
+</body>
+
+</html>
