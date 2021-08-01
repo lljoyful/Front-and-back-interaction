@@ -1,0 +1,35 @@
+{
+    "vetur.format.defaultFormatterOptions": {
+        // // 当保存代码的时候，会自动格式化
+        "editor.formatOnSave": true,
+        // 不添加分号
+        "prettier.semi": false,
+        // 使用单引号
+        "prettier.singleQuote": true,
+        // 解决Vue的属性换行问题
+        "vetur.format.defaultFormatter.html": "js-beautify-html",
+        "vetur.format.defaultFormatter.js": "vscode-typescript",//在配置了默认格式后 这个需要打开 否则js格式化会换行
+        "vetur.format.defaultFormatterOptions": {
+    
+            "js-beautify-html": {
+                "wrap_attributes": "auto"
+            },
+            "prettyhtml": {
+                "printWidth": 1000,
+                "singleQuote": false,
+                "wrapAttributes": false,
+                "sortAttributes": false
+            }
+        },
+    
+        "js-beautify-html": {
+            "wrap_attributes": "force-expand-multiline"
+        },
+        "prettyhtml": {
+            "printWidth": 100,
+            "singleQuote": false,
+            "wrapAttributes": false,
+            "sortAttributes": false
+        }
+    }
+}
